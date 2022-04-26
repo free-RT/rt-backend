@@ -2,7 +2,9 @@ NMethod frrt.jp
 import backend.utils
 import sanic.exceptions
 import sanic
+import os.path
 set  eval "sanic.response" sanic
+set  eval "os.path" oph
 set  eval "sanic.exceptions" se
 set  eval "backend.utils" utl
 set  eval "403" 403
@@ -17,7 +19,7 @@ set  eval "\"/index.html\"" path
 Eif
 await invoke ycmd cmdrun_file "data/data.ycmd"
 set  eval "self.getvar('FRRT_FOLDER')+self.getvar('path')" path
-await  aioisdir path isd
+set oph isdir path isd
 if isd == true
 set se SanicException "ここは天国、二人で一つに！",403 sae
 set utl wrap_html request,se r
