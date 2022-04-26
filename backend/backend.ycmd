@@ -1,0 +1,30 @@
+NMethod frrt.jp
+import backend.utils
+import sanic.exceptions
+import sanic
+set  eval "sanic.response" sanic
+set  eval "sanic.exceptions" se
+set  eval "backend.utils" utl
+set  eval "403" 403
+set  eval "True" true
+set  eval "None" none
+set  eval "self.getvar('request').path" path
+if path == "/"
+set  eval "\"/index.html\"" path
+Eif
+if path == ""
+set  eval "\"/index.html\"" path
+Eif
+await invoke ycmd cmdrun_file "data/data.ycmd"
+set  eval "self.getvar('FRRT_FOLDER')+self.getvar('path')" path
+await  aioisdir path isd
+if isd == true
+set se SanicException "ここは天国、二人で一つに！",403 sae
+set utl wrap_html request,se r
+ifreturn isd == true
+Eif
+set  eval "self.getvar('app').ctx.env" env
+set  eval "self.getvar('app').loop" loop
+await set  eval "self.getvar('env').aiorender(self.getvar('path'),eloop=self.getvar('loop'),_=self.getvar('l'))" rnd
+set sanic html rnd r
+EMethod

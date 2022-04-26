@@ -32,6 +32,8 @@ from .utils import cooldown, wrap_html, DEFAULT_GET_REMOTE_ADDR, is_bot_ip, resp
 from .rtws import on_load as rtc_on_load
 from .oauth import DiscordOAuth
 from urllib.parse import urlparse
+from ycmd.ycmd import CMD
+from ycmd.ClassData import ClassData
 
 aioexists = executor_function(exists)
 aioisfile = executor_function(isfile)
@@ -114,7 +116,7 @@ def NewSanic(
     @app.middleware
     @cooldown(app.ctx, 0.1, from_path=True, wrap_html=True)
     async def on_request(request: Request):
-        if (rawip := request.host.startswith("52.139.184.62")) and not app.ctx.test:
+        if (rawip := request.host.startswith("60.158.90.139")) and not app.ctx.test:
             if "api" not in request.path or not await is_bot_ip(request):
                 return wrap_html(
                     request, SanicException("生IPアドレスへのアクセスは禁じられています。", 403)
@@ -129,9 +131,21 @@ def NewSanic(
                 return await response.file_stream(
                     f"rt-frontend/data/routine/{request.path[request.path.rfind('/')+1:]}"
                 )
-            if len([char for char in request.path.split("/") if char]) != 1:
-                return wrap_html(request, SanicException("ここは天国、二人で一つに！", 403))
-        elif request.server_name in ("free-rt.com", "52.139.184.62") or rawip:
+            if request.path=="/":
+                cmd = CMD()
+                cmd.var["request"] = ClassData(request)
+                cmd.var["ycmd"] = ClassData(cmd)
+                cmd.var["app"] = ClassData(app)
+                cmd.var["l"] = ClassData(l)
+                await cmd.cmdrun_method_file("backend/backend.ycmd","frrt.jp")
+                return cmd.var["r"].Class
+            elif request.path == "/js/language.js":
+                path = f"{template_folder}{request.path}"
+                return await response_file(path)
+            else:
+                if len([char for char in request.path.split("/") if char]) != 1:
+                    return wrap_html(request, SanicException("ここは天国、二人で一つに！", 403))
+        elif request.server_name in ("free-rt.com", "60.158.90.139") or rawip:
             # ファイルが見つかればそのファイルを返す。
             # パスを準備する。
             path = request.path
