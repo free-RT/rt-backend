@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://free-rt.com/css/main.css">
+    <title>Home | Free RT Discord Bot</title>
+            <meta name="description" content="他にはないような機能を提供している多機能Bot。">
+            
+    <meta name="theme-color" content="#6E3DD9">
+    <link rel="icon" href="https://free-rt.com/img/favicon.ico">
+    <script type="module">
+      // アカウントのログイン処理をする。
+
+      import { replaceLanguage } from "https://frrt.jp/js/language.js";
+
+      replaceLanguage();
+
+      fetch(new Request("https://free-rt.com/api/account"))
+        .then(response => { return response.json(); })
+        .then(data => {
+          if (data.status == 200 && data.data.login) {
+            data = data.data;
+            document.getElementById("login").remove();
+            document.getElementById("userName").innerText = data.user_name;
+            document.getElementById("account").setAttribute("style", "display: inline !important;");
+          };
+        });
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="https://free-rt.com/" class="logo">RT Discord Bot</a>
+      <div class="margin"></div>
+      <label class="menu">
+        <input type="checkbox">
+        <div class="menu-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="menu-list">
+          <a href="https://free-rt.com/news.html" class="m language ja" hidden>ニュース</a><a href="https://free-rt.com/news.html" class="m language en" hidden>News</a>
+          <a href="https://free-rt.com/help.html" class="m language ja" hidden>ヘルプ</a><a href="https://free-rt.com/help.html" class="m language en" hidden>Help</a>
+          <a href="https://free-rt.com/rocations" class="m language ja" hidden>サーバー掲示板</a><a href="https://free-rt.com/rocations" class="m language en" hidden>Server BBS</a>
+          <a href="https://discord.gg/VHwJ3CBuWw" class="m language ja" hidden>サポートサーバー</a><a href="https://discord.gg/VHwJ3CBuWw" class="m language en" hidden>Support Server</a>
+          <a href="https://discord.com/api/oauth2/authorize?client_id=961521106227974174&permissions=8&scope=bot%20applications.commands" class="m language ja" hidden>導入する</a><a href="https://discord.com/api/oauth2/authorize?client_id=961521106227974174&permissions=8&scope=bot%20applications.commands" class="m language en" hidden>Invite</a>
+          <a href="https://free-rt.com/api/account/login" class="m login language ja" id="login" hidden>ログイン</a><a href="https://free-rt.com/api/account/login" class="m login language en" id="login" hidden>Login</a>
+          <span class="m account" id="account">
+            <a class="name" id="userName"></a>
+            <div class="dropdown">
+              <a href="https://free-rt.com/dashboard">Dashboard</a>
+              <a href="https://free-rt.com/api/account/logout">Log out</a>
+            </div>
+          </span>
+        </div>
+      </label>
+    </header>
+    <center>
+    <h1>このサイトについて</h1>
+    このサイトはRTというDiscord Botのフリーバージョンの<br><br>Free RTの短縮URL用のサイトです。<br><br>短縮URLの作成方法はFreeRTを導入しているサーバーでrf!url short [url]のコマンドを<br><br>実行するだけ。Free RTについては下を確認してね</center>
+    <div class="index-html">
+        <div class="top">
+            <div>
+                <h1>Free RT Discord Bot</h1>
+                <p><div class="language ja "  hidden>便利で多機能な次世代Bot</div><div class="language en "  hidden>Convenient, feature-rich, modern Bot</div></p>
+            </div>
+        </div>
+        <div class="content">
+            <h1>About</h1>
+            <div class="language ja "  hidden>
+              Free RTは次世代の多機能discord Botです。RTというbotのフリーバージョンとなります。<br>
+              RTはtasurenという人が開発している有料botです。使いやすさや安定性はそちらの方がいいのでRTを使いたい場合はtasurenにお金を払いましょう。
+              </div><div class="language en "  hidden>
+              Free RT is a Discord Bot that can do everything most Bots can.<br>
+              You will only need this Bot to manage the server.
+              </div>
+        </div>
+        <hr>
+        <div class="introduce-wrapper">
+            <div class="introduce-wrapper-white">
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/tool.png">
+                </div>
+                <div class="introduce">
+                    <h2 class="language ja "  hidden>サーバー管理から娯楽にも使える豊富な機能</h2><h2 class="language en "  hidden>Tools and server management tools</h2>
+                    <div class="language ja "  hidden>以下のようなサーバーツールがあります。</div><div class="language en "  hidden>The tools are:</div>
+                    <ol><li><div class="language ja "  hidden>役職, 投票, 募集, チケット パネル</div><div class="language en "  hidden>Role, vote, recruitment, ticket panel</div></li><li><div class="language ja "  hidden>カスタム可能なチャンネルステータス</div><div class="language en "  hidden>Customizable channel status</div></li><li><div class="language ja "  hidden>チャンネルのロック/アンロック</div><div class="language en "  hidden>Lock/Unlock channel</div></li><li><div class="language ja "  hidden>スレッドマネージャー (スレッド自動アーカイブ防止など)</div><div class="language en "  hidden>Thread manager (e.g. archive stopper)</div></li><li><div class="language ja "  hidden>自己紹介テンプレートに使えるいつも下にくる強制ピン留め</div><div class="language en "  hidden>A forced pinning feature that creates a message that always comes to the bottom, is useful for self-introduction templates.</div></li><li><div class="language ja "  hidden>フィールドも設定が可能な埋め込み作成コマンド</div><div class="language en "  hidden>Create embed with configurable fields as well.</div></li><li><div class="language ja "  hidden>特定のロールが付与/剥奪された際に他を付与/剥奪する機能</div><div class="language en "  hidden>Ability to grant/strip other roles when a specific role is granted/stripped.</div></li><li><div class="language ja "  hidden>自動返信</div><div class="language en "  hidden>Auto Reply</div></li><li><div class="language ja "  hidden>ボイスチャンネルに入ったら付与されるロール</div><div class="language en "  hidden>Roles granted when users enter a voice channel.</div></li><li><div class="language ja "  hidden>その他諸々</div><div class="language en "  hidden>various other things</div></li></ol>
+                </div>
+            </div>
+            <br>
+            <div class="introduce-wrapper-black">
+                <div class="introduce">
+                    <h2 class="language ja "  hidden>便利な機能</h2><h2 class="language en "  hidden>Convenient</h2>
+                    <div class="language ja "  hidden>以下のような便利なサーバーツールがあります。</div><div class="language en "  hidden>Some useful server tools are:</div>
+                    <ol><li><div class="language ja "  hidden>レベル機能、レベルロール</div><div class="language en "  hidden>Level, Level reward</div></li><li><div class="language ja "  hidden>引用のように表示するメッセージリンク展開</div><div class="language en "  hidden>Message link expansion to be displayed as a quote</div></li><li><div class="language ja "  hidden>翻訳チャンネル</div><div class="language en "  hidden>Auto translation channel</div></li><li><div class="language ja "  hidden>URL短縮</div><div class="language en "  hidden>URL Shortener</div></li><li><div class="language ja "  hidden>bump/up 通知</div><div class="language en "  hidden>bump/up notification</div></li><li><div class="language ja "  hidden>NSFW誤爆対策の自動スポイラー</div><div class="language en "  hidden>Automatic spoiler for NSFW misfire prevention</div></li><li><div class="language ja "  hidden>自動リアクション付与</div><div class="language en "  hidden>Auto reaction</div></li><li><div class="language ja "  hidden>Yahoo検索、「とは」を最後に入れると検索ボタンが表示される。</div><div class="language en "  hidden>A Gentle World</div></li><li><div class="language ja "  hidden>ユーザーIDから情報とアイコンURLの表示</div><div class="language en "  hidden>Displays icon and information from user id.</div></li><li><div class="language ja "  hidden>その他諸々</div><div class="language en "  hidden>various other things</div></li></ol>
+                </div>
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/kirakira.png">
+                </div>
+            </div>
+            <br>
+            <div class="introduce-wrapper-white">
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/safe.png">
+                </div>
+                <div class="introduce">
+                    <div class="language ja "  hidden><h2>荒らし対策に使える機能</h2>
+                        最近ツールを使い自動でアカウントにスパムさせて荒らすという行為が増えています。<br>
+                        そういう荒らし用捨てアカウントは画像,Web,合言葉認証で対策ができます。<br>
+                        そしてAutoMod機能を使うことでスパムを繰り返した人をミュートやBANすることもできます。<br>
+                        また招待リンク規制や絵文字制限などもできます。<br>
+                        さらに危険人物リストにあるユーザーをBANをするGBANという機能もあるので安心です。</div><div class="language en "  hidden><h2>Features that can be used to prevent vandalism</h2>
+                        More and more people are using tools to spam their accounts automatically.<br>
+                        You can use images, the web, and password authentication to solve the problem.<br>
+                        You can also use AutoMod to mute or BAN your spam and restrict invitation links and emoji.<br>
+                        In addition, there is GBAN that BANs users on the dangerous person list.</div>
+                </div>
+            </div>
+            <br>
+            <div class="introduce-wrapper-black">
+                <div class="introduce">
+                    <div class="language ja "  hidden><h2>音楽プレイヤー</h2>
+                        現時点でYouTube,ニコニコ動画,SoundCloudが再生できる音楽プレイヤーです。<br>
+                        またプレイリストを十個まで作れて、一つのプレイリストに八百まで曲データを保存できます。<br>
+                        お手軽にお気に入り曲を全て再生できます。</div><div class="language en "  hidden><h2>Music Player</h2>
+                        It is a music player that can play YouTube, Nico Nico Douga, and SoundCloud at the moment.<br>
+                        You can also create up to ten playlists that can contain up to 800 songs.</div>
+                </div>
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/onpu.png">
+                </div>
+            </div>
+            <br>
+            <div class="introduce-wrapper-white">
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/tts.png">
+                </div>
+                <div class="introduce">
+                    <div class="language ja "  hidden><h2>読み上げ</h2>
+                        声の種類を変更可能な読み上げ機能です。<br>
+                        ゆっくり霊夢やゆっくり魔理沙にも声を変更可能です。<br>
+                        また辞書機能もあります。<br>
+                        しかも音声を特定の単語に登録して読み上げ中に使いみんなを笑わすこともできます。(笑)</div><div class="language en "  hidden><h2>TTS</h2>
+                        Reads out messages sent to the text channel in the voice channel.<br>
+                        You can also play a meme sound source while reading out loud.</div>
+                </div>
+            </div>
+            <div class="introduce-wrapper-black">
+                <div class="introduce">
+                    <div class="language ja "  hidden><h2>その他娯楽など</h2>以下のような楽しい機能もあります。</div><div class="language en "  hidden><h2>Fun</h2>The following entertainment and other functions are available.</div>
+                    <ol><li><div class="language ja "  hidden>指定した地域の天気予報を毎日指定した時間にDMに送らせる機能</div><div class="language en "  hidden>Weather forecast notification (Sorry, this feature is only supported in Japan at this time. So coming soon...)</div></li><li><div class="language ja "  hidden>マインスイーパーをする機能</div><div class="language en "  hidden>Play minesweeper</div></li><li><div class="language ja "  hidden>Minecraft(Java版)のユーザーのスキンを表示</div><div class="language en "  hidden>Displays skin of Minecraft (java) user.</div></li><li><div class="language ja "  hidden>今日は何の日か表示、毎日指定したチャンネルに送信</div><div class="language en "  hidden>Never gonna give you up</div></li><li><div class="language ja "  hidden><a href="https://www3.nhk.or.jp/news/">NHKニュース</a>の最新ニュース表示</div><div class="language en "  hidden><a href="https://www3.nhk.or.jp/news/">NHK News (Japanese)</a> (Sorry, this feature is only supported in Japan at this time. So coming soon...)</div></li><li><div class="language ja "  hidden><a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a>の最新のニュース表示</div><div class="language en "  hidden>Show <a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a> (Sorry, this feature is only supported in Japan at this time. So coming soon...)</div></li></ol>
+                </div>
+                <div class="introduce">
+                    <img src="https://free-rt.com/img/introduce/gamepad.png">
+                </div>
+            </div>
+        </div>
+        <div class="content" style="padding: 5rem 20%;">
+            <h1 class="language ja "  hidden>さあ、あなたのサーバーにもFree RTを導入しよう！</h1><h1 class="language en "  hidden>Let's invite me!</h1>
+            <a href="https://app.dissoku.net/api/bots/716496407212589087/invite/" class="rtbtn">Invite</a>
+        </div>
+    </div>
+    
+    <footer>
+      <div class="menu">
+        <a href="https://free-rt.com/">
+          <img src="https://free-rt.com/img/icon.png">
+        </a>
+        <div class="menu-list">
+          <div class="item">
+            <div class="m-title">Main</div>
+            <div>
+              <a href="https://free-rt.com/news.html" class="language ja" hidden>ニュース</a>
+              <a href="https://free-rt.com/news.html" class="language en" hidden>News</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html" class="language ja" hidden>ヘルプ</a>
+              <a href="https://free-rt.com/help.html" class="language en" hidden>Help</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/credit.html" class="language ja" hidden>クレジット</a>
+              <a href="https://free-rt.com/credit.html" class="language en" hidden>Credit</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/terms.html" class="language ja" hidden>利用規約</a>
+              <a href="https://free-rt.com/terms.html" class="language en" hidden>Terms of Uses</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/privacy.html" class="language ja" hidden>プライバシーポリシー</a>
+              <a href="https://free-rt.com/privacy.html" class="language en" hidden>Privacy Policy</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/status.html">Status</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="m-title">Help</div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=bot">Bot General</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=server-tool" class="language ja" hidden>サーバー(ツール)</a>
+              <a href="https://free-rt.com/help.html?g=server-tool" class="language en" hidden>Server Tool</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=server-panel" class="language ja" hidden>サーバー(パネル)</a>
+              <a href="https://free-rt.com/help.html?g=server-panel" class="language en" hidden>Server Panel</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=server-safety" class="language ja" hidden>サーバー(安全)</a>
+              <a href="https://free-rt.com/help.html?g=server-safety" class="language en" hidden>Server Safety</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=server-useful" class="language ja" hidden>サーバー(便利)</a>
+              <a href="https://free-rt.com/help.html?g=server-useful" class="language en" hidden>Server Useful</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=individual" class="language ja" hidden>個人</a>
+              <a href="https://free-rt.com/help.html?g=individual" class="language en" hidden>Individual</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=entertainment" class="language ja" hidden>娯楽</a>
+              <a href="https://free-rt.com/help.html?g=entertainment" class="language en" hidden>Entertainment</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=chplugin" class="language ja" hidden>チャンネルプラグイン</a>
+              <a href="https://free-rt.com/help.html?g=chplugin" class="language en" hidden>Channel Plugin</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=music" class="language ja" hidden>音楽再生</a>
+              <a href="https://free-rt.com/help.html?g=music" class="language en" hidden>Music</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/help.html?g=other">Other</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="m-title">Links</div>
+            <div>
+              <a href="https://discord.gg/VHwJ3CBuWw" target="_blank" class="language ja" hidden>サポートサーバー</a>
+              <a href="https://discord.gg/VHwJ3CBuWw" target="_blank" class="language en" hidden>Support Server</a>
+            </div>
+            <div>
+              <a href="https://discord.com/api/oauth2/authorize?client_id=961521106227974174&permissions=8&scope=bot%20applications.commands"
+                target="_blank">Invite URL</a>
+            </div>
+            <div>
+              <a href="https://twitter.com/Free_RT_discord" target="_blank">Twitter</a>
+            </div>
+            <div>
+              <a href="https://github.com/Free-RT" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="m-title">Dashboard</div>
+            <div>
+              <a href="https://free-rt.com/dashboard">Home</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/api/account/login">Login</a>
+            </div>
+            <div>
+              <a href="https://free-rt.com/api/account/logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Copyright © 2020-2022 RT-Team and Free-RT. All Rights Reserved.</div>
+    </footer>
+  </body>
+</html>
+
+
