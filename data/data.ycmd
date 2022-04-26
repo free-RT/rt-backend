@@ -1,0 +1,8 @@
+set  eval "\"wb\"" PREFIX
+set  eval "\"rt-frontend\"" TEMPLATE_FOLDER
+set  eval "('html','xml','tpl')" TEMPLATE_EXTS
+set  eval "\"blueprints\"" BLUEPRINTS_FOLDER
+set  eval "\"cogs\"" COGS_FOLDER
+set  eval "\"short_url\"" FRRT_FOLDER
+set  eval "\"auth.json\"" AUTH_PATH
+
